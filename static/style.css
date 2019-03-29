@@ -1,0 +1,14 @@
+* {
+    padding: 0;
+    margin: auto;
+    border: 1px dotted grey;
+}
+
+
+
+.page-header {
+    padding: 3rem 0 3rem 2rem;
+}
+.search-field {
+    padding: 2rem;
+}
