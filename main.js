@@ -1,5 +1,5 @@
-// let apiUrl = "https://itunes-api-proxy.glitch.me/"
 /* globals fetch */
+
 function query(selector) {
     return document.querySelector(selector)
 }
@@ -7,6 +7,7 @@ function query(selector) {
 function queryAll(selector) {
     return document.querySelectorAll(selector)
 }
+
 // restructuring my javascript file to look more like Abbys... using more functions
 function getArtistData(searchText) {
     console.log('get artist data')
@@ -22,7 +23,14 @@ function getArtistData(searchText) {
         })
 }
 
+function createElement(musicData) {
+    let newListItem = document.createElement('li')
+    let newInfo = document.createTextNode(musicData.results.artistName)
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('dom content loaded')
+
     let searchField = query('#music-search')
     searchField.addEventListener('change', event => {
         event.preventDefault()
@@ -31,12 +39,14 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(searchText)
         searchField.value = ''
 
-        console.log('dom content loaded')
         getArtistData(searchText)
             .then(musicData => {
-                console.log(musicData)
-
-
+                for (let row of musicData.results) {
+                    listElement = document.createElement('li')
+                    listElement.innerText = row.trackName
+                    query('#search-result').appendChild(listElement)
+                }
+                console.log(musicData.results[0].artistName)
             })
     })
 })
