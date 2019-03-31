@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // console.log(arrayOfData[i])
                     // checked out Dan M's code to see how he did this for loop
                     // create divs below to put my track data in HTML
-                    const createListSection = document.createElement('ul')
+                    let createListSection = document.createElement('ul')
                     let trackListItem = document.createElement('li')
                     let artistListItem = document.createElement('li')
                     let trackArtItem = document.createElement('li')
@@ -66,9 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     trackAudioItem.innerHTML = audioURl
                     console.log(artistName)
                     console.log(trackName)
-                    return createListSection
-                            
-                        
+                    // return createListSection    
                 }
                 // for (let row of musicData.results) {
                 //     const createSongSet = document.createElement('span')
