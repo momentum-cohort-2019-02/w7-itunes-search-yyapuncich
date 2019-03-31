@@ -74,7 +74,6 @@ function generateDisplay(searchText) {
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log('dom content loaded')
-
     let searchField = query('#music-search')
     searchField.addEventListener('change', event => {
         event.preventDefault()
@@ -82,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function () {
         searchText += encodeURIComponent(searchField.value)
         console.log(searchText)
         searchField.value = ''
+        // clears display for new results
+        query('.song-set').innerHTML = ''
 
         generateDisplay(searchText)
     })

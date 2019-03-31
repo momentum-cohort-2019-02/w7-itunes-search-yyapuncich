@@ -38,13 +38,20 @@ body {
 }
 
 .track-details {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
     padding: 1rem;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     text-align: center;
+    align-content: stretch;
     border: 2px solid hotpink;
     margin-bottom: 1rem;
+}
+
+li {
+    align-content: space-around;
 }
 
 .audio {
