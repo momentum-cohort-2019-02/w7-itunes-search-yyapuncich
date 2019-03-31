@@ -50,7 +50,7 @@ function generateDisplay(searchText) {
                 let trackArt = arrayOfData[i].artworkUrl100
 
                 trackListItem.innerText = trackName
-                trackArtItem.innerHTML = trackArt
+                trackArtItem.innerHTML = "<img src=" + trackArt + ">"
                 artistListItem.innerText = artistName
                 // trackAudioItem.innerHTML = "<audio src=" + audioURL + "></audio>"
                 let audioURL = arrayOfData[i].previewUrl
