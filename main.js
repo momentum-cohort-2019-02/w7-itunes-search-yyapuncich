@@ -33,7 +33,8 @@ function generateDisplay(searchText) {
                 // console.log(arrayOfData[i])
                 // checked out Dan M's code to see how he did this for loop
                 // create divs below to put my track data in HTML
-                let createListSection = document.createElement('ul')
+                const createListSection = document.createElement('ul')
+                createListSection.setAttribute("class", "track-details")
                 let trackListItem = document.createElement('li')
                 let artistListItem = document.createElement('li')
                 let trackArtItem = document.createElement('li')
@@ -44,7 +45,6 @@ function generateDisplay(searchText) {
                 createListSection.appendChild(trackArtItem)
                 createListSection.appendChild(trackAudioItem)
 
-                let audioURl = arrayOfData[i].previewUrl
                 let artistName = arrayOfData[i].artistName
                 let trackName = arrayOfData[i].trackName
                 let trackArt = arrayOfData[i].artworkUrl100
@@ -52,10 +52,16 @@ function generateDisplay(searchText) {
                 trackListItem.innerText = trackName
                 trackArtItem.innerHTML = trackArt
                 artistListItem.innerText = artistName
-                trackAudioItem.innerHTML = audioURl
+                // trackAudioItem.innerHTML = "<audio src=" + audioURL + "></audio>"
+                let audioURL = arrayOfData[i].previewUrl
+                let track = new Audio(audioURL)
+                trackListItem.addEventListener('click', () => {
+                    track.play()
+                })
+                trackListItem.innerText = "Play!"
+                trackAudioItem.appendChild(track)
                 console.log(artistName)
                 console.log(trackName)
-                // return createListSection    
             }
         })
 }
