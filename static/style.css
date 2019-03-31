@@ -21,6 +21,10 @@
     padding: 2rem;
 }
 
+.artist-name {
+    padding: 2rem 0 2rem 2rem;
+}
+
 .song-set {
     display: flex;
     flex-wrap: wrap;

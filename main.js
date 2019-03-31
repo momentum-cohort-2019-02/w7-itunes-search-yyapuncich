@@ -28,6 +28,7 @@ function generateDisplay(searchText) {
         .then(musicData => {
             // iterate through every index of results
             let arrayOfData = musicData.results
+            query('.artist-name').innerText = musicData.results[0].artistName
             // console.log(arrayOfData)
             for (let i = 0; i < arrayOfData.length; i++) {
                 // console.log(arrayOfData[i])
