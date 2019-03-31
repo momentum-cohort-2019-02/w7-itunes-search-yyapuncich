@@ -55,10 +55,10 @@ function generateDisplay(searchText) {
                 // trackAudioItem.innerHTML = "<audio src=" + audioURL + "></audio>"
                 let audioURL = arrayOfData[i].previewUrl
                 let track = new Audio(audioURL)
-                trackListItem.addEventListener('click', () => {
+                trackAudioItem.addEventListener('click', () => {
                     track.play()
                 })
-                trackListItem.innerText = "Play!"
+                trackAudioItem.innerText = "Play!"
                 trackAudioItem.appendChild(track)
                 console.log(artistName)
                 console.log(trackName)
