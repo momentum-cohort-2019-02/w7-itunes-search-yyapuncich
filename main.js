@@ -29,7 +29,7 @@ function generateDisplay(searchText) {
             // iterate through every index of results
             let arrayOfData = musicData.results
             query('.artist-name').innerText = musicData.results[0].artistName
-            // console.log(arrayOfData)
+            // console.log(arrayOfData) https://stackoverflow.com/questions/36413159/understanding-nested-for-loops-in-javascript
             for (let i = 0; i < arrayOfData.length; i++) {
                 // console.log(arrayOfData[i])
                 // checked out Dan M's code to see how he did this for loop
@@ -40,20 +40,23 @@ function generateDisplay(searchText) {
                 let artistListItem = document.createElement('li')
                 let trackArtItem = document.createElement('li')
                 let trackAudioItem = document.createElement('li')
+                // add my <ul> to song-set section and <li>s to <ul>
                 query('.song-set').appendChild(createListSection)
                 createListSection.appendChild(trackListItem)
                 createListSection.appendChild(artistListItem)
                 createListSection.appendChild(trackArtItem)
                 createListSection.appendChild(trackAudioItem)
-
+                // set variables to get info for each track
                 let artistName = arrayOfData[i].artistName
                 let trackName = arrayOfData[i].trackName
                 let trackArt = arrayOfData[i].artworkUrl100
-
+                // set inner contents of <li> I created above
                 trackListItem.innerText = trackName
+                // InnerHTML https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
                 trackArtItem.innerHTML = "<img src=" + trackArt + ">"
                 artistListItem.innerText = artistName
-                // trackAudioItem.innerHTML = "<audio src=" + audioURL + "></audio>"
+                // set audio contents for each track item
+                // https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement#Basic_usage
                 let audioURL = arrayOfData[i].previewUrl
                 let track = new Audio(audioURL)
                 trackAudioItem.addEventListener('click', () => {
@@ -61,6 +64,7 @@ function generateDisplay(searchText) {
                 })
                 trackAudioItem.innerText = "Play!"
                 trackAudioItem.appendChild(track)
+                trackAudioItem.setAttribute("class", "audio")
                 console.log(artistName)
                 console.log(trackName)
             }

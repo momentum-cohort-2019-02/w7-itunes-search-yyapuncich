@@ -1,12 +1,16 @@
 * {
     font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
     padding: 0;
     margin: auto;
     border: 1px dotted grey;
+
 }
 
-.body {
+body {
     max-width: 1200px;
+    height: 100%;
+    padding: 0 2rem 4rem 2rem;
 }
 
 .now-playing-header {
@@ -14,6 +18,8 @@
 }
 
 .page-header {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 50px;
     padding: 3rem 0 3rem 2rem;
 }
 
@@ -34,4 +40,19 @@
 .track-details {
     list-style-type: none;
     padding: 1rem;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    border: 2px solid hotpink;
+    margin-bottom: 1rem;
+}
+
+.audio {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.audio:hover {
+    color: hotpink;
+    cursor: pointer;
 }
