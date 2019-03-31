@@ -22,11 +22,7 @@ function getArtistData(searchText) {
             return response.json()
         })
 }
-
-function createElement(musicData) {
-    let newListItem = document.createElement('li')
-    let newInfo = document.createTextNode(musicData.results.artistName)
-}
+// Classlist: https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log('dom content loaded')
@@ -41,12 +37,51 @@ document.addEventListener('DOMContentLoaded', function () {
 
         getArtistData(searchText)
             .then(musicData => {
-                for (let row of musicData.results) {
-                    listElement = document.createElement('li')
-                    listElement.innerText = row.trackName
-                    query('#search-result').appendChild(listElement)
+                // iterate through every index of results
+                let arrayOfData = musicData.results
+                // console.log(arrayOfData)
+                for (let i = 0; i < arrayOfData.length; i++) {
+                    // console.log(arrayOfData[i])
+                    // checked out Dan M's code to see how he did this for loop
+                    // create divs below to put my track data in HTML
+                    const createListSection = document.createElement('ul')
+                    let trackListItem = document.createElement('li')
+                    let artistListItem = document.createElement('li')
+                    let trackArtItem = document.createElement('li')
+                    let trackAudioItem = document.createElement('li')
+                    query('.song-set').appendChild(createListSection)
+                    createListSection.appendChild(trackListItem)
+                    createListSection.appendChild(artistListItem)
+                    createListSection.appendChild(trackArtItem)
+                    createListSection.appendChild(trackAudioItem)
+
+                    let audioURl = arrayOfData[i].previewUrl
+                    let artistName = arrayOfData[i].artistName
+                    let trackName = arrayOfData[i].trackName
+                    let trackArt = arrayOfData[i].artworkUrl100
+
+                    trackListItem.innerText = trackName
+                    trackArtItem.innerHTML = trackArt
+                    artistListItem.innerText = artistName
+                    trackAudioItem.innerHTML = audioURl
+                    console.log(artistName)
+                    console.log(trackName)
+                    return createListSection
+                            
+                        
                 }
-                console.log(musicData.results[0].artistName)
+                // for (let row of musicData.results) {
+                //     const createSongSet = document.createElement('span')
+                //     createSongSet.setAttribute('class', "song-set")
+                //     // create 'span' for every set of song info
+                //     for (items in row) {
+                //         if (row.trackName) {
+                //         trackListItem.innerText = row.trackName
+                //         artistName = row.artistName
+                //         query('.song-set').appendChild(trackListItem)
+                //         }
             })
     })
+
+    // console.log(musicData.results[0].artistName)
 })

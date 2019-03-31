@@ -16,3 +16,8 @@
 .search-field {
     padding: 2rem;
 }
+
+.song-set {
+    display: inline;
+    list-style-type: none;
+}
