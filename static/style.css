@@ -55,18 +55,18 @@ main {
     justify-content: center;
     border-bottom: 2px dashed hotpink;
     border-right: 2px dashed blueviolet;
-    border-top: 2px dashed powderblue;
+    border-top: 2px dashed #b0e0e6;
     border-left: 2px dashed orange;
     margin: 0 2rem 2rem 0;
     overflow: hidden;
 }
 
-.audio {
+.audio-list-item {
     font-size: 1.5rem;
     text-transform: uppercase;
 }
 
-.audio:hover {
+.audio-list-item:hover {
     text-shadow: black;
     color: hotpink;
     cursor: pointer;

@@ -24,20 +24,30 @@ function getArtistData(searchText) {
         })
 }
 
+function playMusic(trackAudioItem, track, trackName, artistName) {
+    let nowPlaying = query('.now-playing-header')
+    trackAudioItem.addEventListener('click', () => {
+        track.play()
+        nowPlaying.innerHTML = "Currently listening to - - - " + trackName + "by" + artistName
+    })
+}
+
+function pauseMusic(playMusic) {
+    
+}
+
 function generateDisplay(searchText) {
     getArtistData(searchText)
         .then(musicData => {
             // iterate through every index of results
             let arrayOfData = musicData.results
-            query(".artist-name-header").innerHTML = 
-            "<p>Results for " + searchText + "</p>"
             // console.log(arrayOfData) https://stackoverflow.com/questions/36413159/understanding-nested-for-loops-in-javascript
             for (let i = 0; i < arrayOfData.length; i++) {
                 // console.log(arrayOfData[i])
                 // checked out Dan M's code to see how he did this for loop
                 // create divs below to put my track data in HTML
                 const createListSection = document.createElement('ul')
-                createListSection.setAttribute("class", "track-details")
+                createListSection.classList.add("track-details")
                 let trackListItem = document.createElement('li')
                 let artistListItem = document.createElement('li')
                 let trackArtItem = document.createElement('li')
@@ -61,17 +71,14 @@ function generateDisplay(searchText) {
                 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement#Basic_usage
                 let audioURL = arrayOfData[i].previewUrl
                 let track = new Audio(audioURL)
-                trackAudioItem.addEventListener('click', () => {
-                    track.play()
-                })
+                // Controls are ugly ya'll
+                // track.setAttribute("controls", "")
+                playMusic(trackAudioItem, track, trackName, artistName)
+                // add track audio to track-details-list
                 trackAudioItem.innerText = "Play!"
                 trackAudioItem.appendChild(track)
-                trackAudioItem.classList.add("audio")
-                // trackListItem.setAttribute("class", "track-name")
-                // trackArtItem.setAttribute("class", "album-art")
-                // artistListItem.setAttribute("class", "artist-name")
-                console.log(artistName)
-                console.log(trackName)
+                trackAudioItem.classList.add("audio-list-item")
+                // change now playing header
             }
         })
 }
@@ -82,6 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let searchField = query('#music-search')
     searchField.addEventListener('change', event => {
         event.preventDefault()
+        query(".artist-name-header").innerHTML =
+            "<p>Results for " + searchField.value + "</p>"
         let searchText = ''
         searchText += encodeURIComponent(searchField.value)
         console.log(searchText)
