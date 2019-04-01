@@ -35,6 +35,7 @@ main {
 
 .artist-name-header {
     padding: 2rem 0 2rem 2rem;
+    text-transform: capitalize;
 }
 
 .song-set {

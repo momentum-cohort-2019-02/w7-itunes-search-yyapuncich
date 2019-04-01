@@ -13,7 +13,7 @@ function queryAll(selector) {
 function getArtistData(searchText) {
     console.log('get artist data')
 
-    return fetch(`https://itunes-api-proxy.glitch.me/search?${searchText}`)
+    return fetch(`https://itunes-api-proxy.glitch.me/search?term=${searchText}`)
         .then(response => {
             if (!response.ok) {
                 console.log('not ok')
@@ -29,7 +29,8 @@ function generateDisplay(searchText) {
         .then(musicData => {
             // iterate through every index of results
             let arrayOfData = musicData.results
-            query(".artist-name-header").innerText = musicData.results[1].artistName
+            query(".artist-name-header").innerHTML = 
+            "<p>Results for " + searchText + "</p>"
             // console.log(arrayOfData) https://stackoverflow.com/questions/36413159/understanding-nested-for-loops-in-javascript
             for (let i = 0; i < arrayOfData.length; i++) {
                 // console.log(arrayOfData[i])
@@ -81,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let searchField = query('#music-search')
     searchField.addEventListener('change', event => {
         event.preventDefault()
-        let searchText = 'term='
+        let searchText = ''
         searchText += encodeURIComponent(searchField.value)
         console.log(searchText)
         searchField.value = ''
