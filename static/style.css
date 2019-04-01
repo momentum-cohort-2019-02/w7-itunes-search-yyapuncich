@@ -1,33 +1,39 @@
 * {
     font-family: 'Montserrat', sans-serif;
-    font-weight: normal;
+    font-weight: 350;
     padding: 0;
     margin: auto;
-    border: 1px dotted grey;
+    /* border: 1px dotted grey; */
 
 }
 
-body {
+main {
     max-width: 1200px;
     height: 100%;
     padding: 0 2rem 4rem 2rem;
 }
 
 .now-playing-header {
-    padding: 1rem 0 1rem 2rem;
+    padding: 1rem 0 1rem 4rem;
+    border-bottom: 2px solid darkslategray;
 }
 
 .page-header {
     font-family: 'Fredericka the Great', cursive;
-    font-size: 50px;
-    padding: 3rem 0 3rem 2rem;
+    letter-spacing: 2rem;
+    color: darkslategray;
+    font-size: 80px;
+    background-color: powderblue;
+    width: 100%;
+    padding: 3rem 0 3rem 4rem;
+    border-bottom: 2px solid darkslategray;
 }
 
 .search-field {
-    padding: 2rem;
+    padding: 2rem 0 2rem 4rem;
 }
 
-.artist-name {
+.artist-name-header {
     padding: 2rem 0 2rem 2rem;
 }
 
@@ -42,16 +48,16 @@ body {
     flex-direction: column;
     list-style-type: none;
     padding: 1rem;
-    width: 250px;
-    height: 250px;
+    width: 225px;
+    height: 225px;
     text-align: center;
-    align-content: stretch;
-    border: 2px solid hotpink;
-    margin-bottom: 1rem;
-}
-
-li {
-    align-content: space-around;
+    justify-content: center;
+    border-bottom: 2px dashed hotpink;
+    border-right: 2px dashed blueviolet;
+    border-top: 2px dashed powderblue;
+    border-left: 2px dashed orange;
+    margin: 0 2rem 2rem 0;
+    overflow: hidden;
 }
 
 .audio {
@@ -60,6 +66,7 @@ li {
 }
 
 .audio:hover {
+    text-shadow: black;
     color: hotpink;
     cursor: pointer;
 }

@@ -9,6 +9,7 @@ function queryAll(selector) {
 }
 
 // restructuring my javascript file to look more like Abbys... using more functions
+
 function getArtistData(searchText) {
     console.log('get artist data')
 
@@ -28,7 +29,7 @@ function generateDisplay(searchText) {
         .then(musicData => {
             // iterate through every index of results
             let arrayOfData = musicData.results
-            query('.artist-name').innerText = musicData.results[0].artistName
+            query(".artist-name-header").innerText = musicData.results[1].artistName
             // console.log(arrayOfData) https://stackoverflow.com/questions/36413159/understanding-nested-for-loops-in-javascript
             for (let i = 0; i < arrayOfData.length; i++) {
                 // console.log(arrayOfData[i])
@@ -64,7 +65,10 @@ function generateDisplay(searchText) {
                 })
                 trackAudioItem.innerText = "Play!"
                 trackAudioItem.appendChild(track)
-                trackAudioItem.setAttribute("class", "audio")
+                trackAudioItem.classList.add("audio")
+                // trackListItem.setAttribute("class", "track-name")
+                // trackArtItem.setAttribute("class", "album-art")
+                // artistListItem.setAttribute("class", "artist-name")
                 console.log(artistName)
                 console.log(trackName)
             }

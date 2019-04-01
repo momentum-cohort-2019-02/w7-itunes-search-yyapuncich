@@ -4,28 +4,32 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Musac</title>
+        <title>Muzak</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="static/style.css">
         <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Montserrat|Open+Sans+Condensed:300"
             rel="stylesheet">
     </head>
 
+
     <body>
         <header>
-            <h1 class="page-header">Ahoy there</h1>
+            <h1 class="page-header">MUZAK</h1>
         </header>
         <h4 class="now-playing-header">Now playing!</h4>
         <div id="now-playing"></div>
+
         <section class="search-field">
             <label for="music">Search for Musac: </label>
             <input type="text" id="music-search" size="30">
             <button type="submit">Find it</button>
         </section>
-        <h2 class="artist-name"></h2>
 
-        <section class="song-set"></section>
+        <main class="main">
+            <h2 class="artist-name-header"></h2>
 
+            <section class="song-set"></section>
+        </main>
     </body>
     <script src="main.js"></script>
 
