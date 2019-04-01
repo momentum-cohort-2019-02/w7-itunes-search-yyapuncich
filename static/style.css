@@ -29,6 +29,10 @@ main {
     border-bottom: 2px solid darkslategray;
 }
 
+a {
+    text-decoration: none;
+}
+
 .search-field {
     padding: 2rem 0 2rem 4rem;
 }

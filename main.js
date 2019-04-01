@@ -26,15 +26,25 @@ function getArtistData(searchText) {
 
 function playMusic(trackAudioItem, track, trackName, artistName) {
     let nowPlaying = query('.now-playing-header')
-    trackAudioItem.addEventListener('click', () => {
+    trackAudioItem.addEventListener('click', event => {
         track.play()
         nowPlaying.innerHTML = "Currently listening to - - - " + trackName + "by" + artistName
+        if (event.target) {
+            trackAudioItem.addEventListener('click', () => {
+                track.pause()
+                nowPlaying.innerHTML = "<p>Listen to more?</p>"
+            })
+        }
     })
 }
 
-function pauseMusic(playMusic) {
-    
-}
+// function pauseMusic(playMusic) {
+//     if (playMusic()) {
+//         trackAudioItem.addEventListener('click', () => {
+//             track.pause()
+//             nowPlaying.innerHTML = "Currently listening to - - - " + trackName + "by" + artistName
+//         })
+// }
 
 function generateDisplay(searchText) {
     getArtistData(searchText)
@@ -74,6 +84,11 @@ function generateDisplay(searchText) {
                 // Controls are ugly ya'll
                 // track.setAttribute("controls", "")
                 playMusic(trackAudioItem, track, trackName, artistName)
+                // .then(track => {
+                //     track.addEventListener('change', () => {
+                //         return track
+                //     })
+                // })
                 // add track audio to track-details-list
                 trackAudioItem.innerText = "Play!"
                 trackAudioItem.appendChild(track)
